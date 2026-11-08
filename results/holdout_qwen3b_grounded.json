@@ -1,0 +1,39 @@
+{
+  "parser": "ollama:qwen2.5:3b",
+  "items": 20,
+  "accuracy": 0.850,
+  "mean_latency_s": 5.76,
+  "fallbacks": 0,
+  "by_category": {
+    "color": {"correct": 2, "total": 2},
+    "shape": {"correct": 3, "total": 3},
+    "spatial": {"correct": 3, "total": 4},
+    "negation": {"correct": 2, "total": 2},
+    "sequence": {"correct": 2, "total": 2},
+    "clarify": {"correct": 0, "total": 2},
+    "control": {"correct": 3, "total": 3},
+    "other": {"correct": 2, "total": 2}
+  },
+  "results": [
+    {"id":"h01","category":"color","pass":true,"intent":"fetch","targets":["orange"],"latency":6.74,"reply":"Got it: fetching the orange cell."},
+    {"id":"h02","category":"color","pass":true,"intent":"fetch","targets":["blue"],"latency":6.60,"reply":"收到，去拿蓝色（圆柱）电芯。"},
+    {"id":"h03","category":"shape","pass":true,"intent":"fetch","targets":["orange"],"latency":4.33,"reply":"Got it: fetching the orange cell."},
+    {"id":"h04","category":"shape","pass":true,"intent":"fetch","targets":["blue"],"latency":6.45,"reply":"收到，去拿蓝色（圆柱）电芯。"},
+    {"id":"h05","category":"shape","pass":true,"intent":"fetch","targets":["blue"],"latency":6.56,"reply":"D'accord, je vais chercher la bleue."},
+    {"id":"h06","category":"spatial","pass":true,"intent":"fetch","targets":["blue"],"latency":5.82,"reply":"Got it: fetching the blue cell."},
+    {"id":"h07","category":"spatial","pass":false,"intent":"fetch","targets":["orange","blue"],"latency":10.53,"reply":"收到，依次去拿橙色（方块），再拿蓝色（圆柱）电芯。"},
+    {"id":"h08","category":"spatial","pass":true,"intent":"fetch","targets":["blue"],"latency":7.23,"reply":"D'accord, je vais chercher la bleue."},
+    {"id":"h09","category":"spatial","pass":true,"intent":"fetch","targets":["orange"],"latency":4.28,"reply":"Got it: fetching the orange cell."},
+    {"id":"h10","category":"negation","pass":true,"intent":"fetch","targets":["orange"],"latency":7.43,"reply":"Got it: fetching the orange cell."},
+    {"id":"h11","category":"negation","pass":true,"intent":"fetch","targets":["orange"],"latency":5.35,"reply":"收到，去拿橙色（方块）电芯。"},
+    {"id":"h12","category":"sequence","pass":true,"intent":"fetch","targets":["orange","blue"],"latency":7.83,"reply":"Got it: fetching the orange cell, then the blue cell."},
+    {"id":"h13","category":"sequence","pass":true,"intent":"fetch","targets":["orange","blue"],"latency":7.71,"reply":"收到，依次去拿橙色（方块），再拿蓝色（圆柱）电芯。"},
+    {"id":"h14","category":"clarify","pass":false,"intent":"fetch","targets":["blue","orange"],"latency":5.35,"reply":"Got it: fetching the blue cell, then the orange cell."},
+    {"id":"h15","category":"clarify","pass":false,"intent":"fetch","targets":["blue","orange"],"latency":5.89,"reply":"收到，依次去拿蓝色（圆柱），再拿橙色（方块）电芯。"},
+    {"id":"h16","category":"control","pass":true,"intent":"cancel","targets":[],"latency":3.51,"reply":"Holding position."},
+    {"id":"h17","category":"control","pass":true,"intent":"status","targets":[],"latency":2.77,"reply":"I am holding the blue cell."},
+    {"id":"h18","category":"control","pass":true,"intent":"new_layout","targets":[],"latency":3.87,"reply":"Understood."},
+    {"id":"h19","category":"other","pass":true,"intent":"other","targets":[],"latency":2.69,"reply":"Thank you, I'll continue as instructed."},
+    {"id":"h20","category":"other","pass":true,"intent":"other","targets":[],"latency":4.21,"reply":"Bonjour! Comment puis-je vous aider aujourd'hui?"}
+  ]
+}

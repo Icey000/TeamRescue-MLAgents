@@ -1,0 +1,39 @@
+{
+  "parser": "rules",
+  "items": 20,
+  "accuracy": 0.550,
+  "mean_latency_s": 0.00,
+  "fallbacks": 0,
+  "by_category": {
+    "color": {"correct": 2, "total": 2},
+    "shape": {"correct": 3, "total": 3},
+    "spatial": {"correct": 0, "total": 4},
+    "negation": {"correct": 0, "total": 2},
+    "sequence": {"correct": 2, "total": 2},
+    "clarify": {"correct": 2, "total": 2},
+    "control": {"correct": 2, "total": 3},
+    "other": {"correct": 0, "total": 2}
+  },
+  "results": [
+    {"id":"h01","category":"color","pass":true,"intent":"fetch","targets":["orange"],"latency":0.00,"reply":"Got it: fetching orange."},
+    {"id":"h02","category":"color","pass":true,"intent":"fetch","targets":["blue"],"latency":0.00,"reply":"收到，去拿蓝色电芯。"},
+    {"id":"h03","category":"shape","pass":true,"intent":"fetch","targets":["orange"],"latency":0.00,"reply":"Got it: fetching orange."},
+    {"id":"h04","category":"shape","pass":true,"intent":"fetch","targets":["blue"],"latency":0.00,"reply":"收到，去拿蓝色电芯。"},
+    {"id":"h05","category":"shape","pass":true,"intent":"fetch","targets":["blue"],"latency":0.00,"reply":"Got it: fetching blue."},
+    {"id":"h06","category":"spatial","pass":false,"intent":"clarify","targets":[],"latency":0.00,"reply":"Sorry, blue or orange cell?"},
+    {"id":"h07","category":"spatial","pass":false,"intent":"clarify","targets":[],"latency":0.00,"reply":"我没听懂，要拿蓝色还是橙色电芯？"},
+    {"id":"h08","category":"spatial","pass":false,"intent":"clarify","targets":[],"latency":0.00,"reply":"Sorry, blue or orange cell?"},
+    {"id":"h09","category":"spatial","pass":false,"intent":"clarify","targets":[],"latency":0.00,"reply":"Sorry, blue or orange cell?"},
+    {"id":"h10","category":"negation","pass":false,"intent":"fetch","targets":["blue"],"latency":0.00,"reply":"Got it: fetching blue."},
+    {"id":"h11","category":"negation","pass":false,"intent":"fetch","targets":["blue"],"latency":0.00,"reply":"收到，去拿蓝色电芯。"},
+    {"id":"h12","category":"sequence","pass":true,"intent":"fetch","targets":["orange","blue"],"latency":0.00,"reply":"Got it: fetching orange then blue."},
+    {"id":"h13","category":"sequence","pass":true,"intent":"fetch","targets":["orange","blue"],"latency":0.00,"reply":"收到，去拿橙色、蓝色电芯。"},
+    {"id":"h14","category":"clarify","pass":true,"intent":"clarify","targets":[],"latency":0.00,"reply":"Sorry, blue or orange cell?"},
+    {"id":"h15","category":"clarify","pass":true,"intent":"clarify","targets":[],"latency":0.00,"reply":"我没听懂，要拿蓝色还是橙色电芯？"},
+    {"id":"h16","category":"control","pass":true,"intent":"cancel","targets":[],"latency":0.00,"reply":"OK, holding position."},
+    {"id":"h17","category":"control","pass":false,"intent":"clarify","targets":[],"latency":0.00,"reply":"Sorry, blue or orange cell?"},
+    {"id":"h18","category":"control","pass":true,"intent":"new_layout","targets":[],"latency":0.00,"reply":"好的，换一个布局。"},
+    {"id":"h19","category":"other","pass":false,"intent":"clarify","targets":[],"latency":0.00,"reply":"Sorry, blue or orange cell?"},
+    {"id":"h20","category":"other","pass":false,"intent":"clarify","targets":[],"latency":0.00,"reply":"Sorry, blue or orange cell?"}
+  ]
+}

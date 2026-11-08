@@ -1,0 +1,12 @@
+{
+  "mode": "Fixed",
+  "rounds": 150,
+  "completion_rate": 0.973,
+  "mean_seconds": 7.904,
+  "robot_lost_target_per_round": 0.493,
+  "robot_switches_per_round": 0.000,
+  "human_shocks_per_round": 1.380,
+  "robot_shocks_per_round": 0.213,
+  "robot_cells_share": 0.449,
+  "inference_accuracy": 0.941
+}

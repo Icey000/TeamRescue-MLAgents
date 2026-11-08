@@ -1,0 +1,372 @@
+{
+ "items": [
+  {
+   "id": "h01",
+   "category": "color",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 4.0,
+    "orangeToRobot": 6.5,
+    "blueToGenerator": 3.0,
+    "orangeToGenerator": 10.0,
+    "blueSide": "right",
+    "orangeSide": "left"
+   },
+   "utterance": "could you fetch the orange power cell for me?",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "orange"
+   ]
+  },
+  {
+   "id": "h02",
+   "category": "color",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 9.0,
+    "orangeToRobot": 2.2,
+    "blueToGenerator": 5.5,
+    "orangeToGenerator": 7.5,
+    "blueSide": "left",
+    "orangeSide": "right"
+   },
+   "utterance": "麻烦把蓝的那块电池送去发电机",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "blue"
+   ]
+  },
+  {
+   "id": "h03",
+   "category": "shape",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 4.0,
+    "orangeToRobot": 6.5,
+    "blueToGenerator": 3.0,
+    "orangeToGenerator": 10.0,
+    "blueSide": "right",
+    "orangeSide": "left"
+   },
+   "utterance": "I need the box-shaped one",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "orange"
+   ]
+  },
+  {
+   "id": "h04",
+   "category": "shape",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 9.0,
+    "orangeToRobot": 2.2,
+    "blueToGenerator": 5.5,
+    "orangeToGenerator": 7.5,
+    "blueSide": "left",
+    "orangeSide": "right"
+   },
+   "utterance": "去拿那个圆柱体",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "blue"
+   ]
+  },
+  {
+   "id": "h05",
+   "category": "shape",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 4.0,
+    "orangeToRobot": 6.5,
+    "blueToGenerator": 3.0,
+    "orangeToGenerator": 10.0,
+    "blueSide": "right",
+    "orangeSide": "left"
+   },
+   "utterance": "apporte-moi le cylindre",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "blue"
+   ]
+  },
+  {
+   "id": "h06",
+   "category": "spatial",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 4.0,
+    "orangeToRobot": 6.5,
+    "blueToGenerator": 3.0,
+    "orangeToGenerator": 10.0,
+    "blueSide": "right",
+    "orangeSide": "left"
+   },
+   "utterance": "whichever one is nearest to you",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "blue"
+   ]
+  },
+  {
+   "id": "h07",
+   "category": "spatial",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 9.0,
+    "orangeToRobot": 2.2,
+    "blueToGenerator": 5.5,
+    "orangeToGenerator": 7.5,
+    "blueSide": "left",
+    "orangeSide": "right"
+   },
+   "utterance": "拿离你远一点的那个",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "blue"
+   ]
+  },
+  {
+   "id": "h08",
+   "category": "spatial",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 4.0,
+    "orangeToRobot": 6.5,
+    "blueToGenerator": 3.0,
+    "orangeToGenerator": 10.0,
+    "blueSide": "right",
+    "orangeSide": "left"
+   },
+   "utterance": "celle qui est près du générateur",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "blue"
+   ]
+  },
+  {
+   "id": "h09",
+   "category": "spatial",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 9.0,
+    "orangeToRobot": 2.2,
+    "blueToGenerator": 5.5,
+    "orangeToGenerator": 7.5,
+    "blueSide": "left",
+    "orangeSide": "right"
+   },
+   "utterance": "go for the one on the right side",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "orange"
+   ]
+  },
+  {
+   "id": "h10",
+   "category": "negation",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 4.0,
+    "orangeToRobot": 6.5,
+    "blueToGenerator": 3.0,
+    "orangeToGenerator": 10.0,
+    "blueSide": "right",
+    "orangeSide": "left"
+   },
+   "utterance": "don't touch the blue one, get the other",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "orange"
+   ]
+  },
+  {
+   "id": "h11",
+   "category": "negation",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 9.0,
+    "orangeToRobot": 2.2,
+    "blueToGenerator": 5.5,
+    "orangeToGenerator": 7.5,
+    "blueSide": "left",
+    "orangeSide": "right"
+   },
+   "utterance": "除了圆的都行",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "orange"
+   ]
+  },
+  {
+   "id": "h12",
+   "category": "sequence",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 4.0,
+    "orangeToRobot": 6.5,
+    "blueToGenerator": 3.0,
+    "orangeToGenerator": 10.0,
+    "blueSide": "right",
+    "orangeSide": "left"
+   },
+   "utterance": "orange first and the blue one after",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "orange",
+    "blue"
+   ]
+  },
+  {
+   "id": "h13",
+   "category": "sequence",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 9.0,
+    "orangeToRobot": 2.2,
+    "blueToGenerator": 5.5,
+    "orangeToGenerator": 7.5,
+    "blueSide": "left",
+    "orangeSide": "right"
+   },
+   "utterance": "先拿方的，然后拿圆的",
+   "expect_intent": "fetch",
+   "expect_targets": [
+    "orange",
+    "blue"
+   ]
+  },
+  {
+   "id": "h14",
+   "category": "clarify",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 4.0,
+    "orangeToRobot": 6.5,
+    "blueToGenerator": 3.0,
+    "orangeToGenerator": 10.0,
+    "blueSide": "right",
+    "orangeSide": "left"
+   },
+   "utterance": "grab a power cell",
+   "expect_intent": "clarify",
+   "expect_targets": []
+  },
+  {
+   "id": "h15",
+   "category": "clarify",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 9.0,
+    "orangeToRobot": 2.2,
+    "blueToGenerator": 5.5,
+    "orangeToGenerator": 7.5,
+    "blueSide": "left",
+    "orangeSide": "right"
+   },
+   "utterance": "去拿个电池过来",
+   "expect_intent": "clarify",
+   "expect_targets": []
+  },
+  {
+   "id": "h16",
+   "category": "control",
+   "facts": {
+    "carrying": "blue",
+    "currentTask": "fetch blue",
+    "blueToRobot": 0.0,
+    "orangeToRobot": 5.0,
+    "blueToGenerator": 6.0,
+    "orangeToGenerator": 4.0,
+    "blueSide": "left",
+    "orangeSide": "right"
+   },
+   "utterance": "hold on, freeze",
+   "expect_intent": "cancel",
+   "expect_targets": []
+  },
+  {
+   "id": "h17",
+   "category": "control",
+   "facts": {
+    "carrying": "blue",
+    "currentTask": "fetch blue",
+    "blueToRobot": 0.0,
+    "orangeToRobot": 5.0,
+    "blueToGenerator": 6.0,
+    "orangeToGenerator": 4.0,
+    "blueSide": "left",
+    "orangeSide": "right"
+   },
+   "utterance": "what have you got in your hands?",
+   "expect_intent": "status",
+   "expect_targets": []
+  },
+  {
+   "id": "h18",
+   "category": "control",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 4.0,
+    "orangeToRobot": 6.5,
+    "blueToGenerator": 3.0,
+    "orangeToGenerator": 10.0,
+    "blueSide": "right",
+    "orangeSide": "left"
+   },
+   "utterance": "给我换一个新的房间布局",
+   "expect_intent": "new_layout",
+   "expect_targets": []
+  },
+  {
+   "id": "h19",
+   "category": "other",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 4.0,
+    "orangeToRobot": 6.5,
+    "blueToGenerator": 3.0,
+    "orangeToGenerator": 10.0,
+    "blueSide": "right",
+    "orangeSide": "left"
+   },
+   "utterance": "you're doing great",
+   "expect_intent": "other",
+   "expect_targets": []
+  },
+  {
+   "id": "h20",
+   "category": "other",
+   "facts": {
+    "carrying": "nothing",
+    "currentTask": "none (waiting for orders)",
+    "blueToRobot": 9.0,
+    "orangeToRobot": 2.2,
+    "blueToGenerator": 5.5,
+    "orangeToGenerator": 7.5,
+    "blueSide": "left",
+    "orangeSide": "right"
+   },
+   "utterance": "bonjour robot",
+   "expect_intent": "other",
+   "expect_targets": []
+  }
+ ]
+}

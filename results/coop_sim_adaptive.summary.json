@@ -1,0 +1,12 @@
+{
+  "mode": "Adaptive",
+  "rounds": 150,
+  "completion_rate": 0.980,
+  "mean_seconds": 7.085,
+  "robot_lost_target_per_round": 0.007,
+  "robot_switches_per_round": 0.313,
+  "human_shocks_per_round": 1.260,
+  "robot_shocks_per_round": 0.233,
+  "robot_cells_share": 0.455,
+  "inference_accuracy": 0.930
+}

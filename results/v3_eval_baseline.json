@@ -1,0 +1,10 @@
+{
+  "policy": "scripted_straight_line",
+  "episodes": 300,
+  "success_rate": 0.973,
+  "mean_seconds_when_successful": 4.33,
+  "shocks_per_episode": 1.513,
+  "wrong_cell_touch_rate": 0.033,
+  "hazard_cables": 2,
+  "timeout_seconds": 40
+}

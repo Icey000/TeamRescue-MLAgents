@@ -1,0 +1,29 @@
+# Unity generated
+UnityProject/[Ll]ibrary/
+UnityProject/[Tt]emp/
+UnityProject/[Oo]bj/
+UnityProject/[Ll]ogs/
+UnityProject/[Uu]ser[Ss]ettings/
+UnityProject/[Bb]uild/
+UnityProject/.vscode/
+UnityProject/*.csproj
+UnityProject/*.sln
+UnityProject/*.slnx
+UnityProject/*.pidb
+UnityProject/*.user
+*.pdb
+
+# Built players (published as release archives instead)
+Build/
+
+# Local logs, training checkpoints and TensorBoard events (final ONNX models live in Assets)
+logs/
+training/results/
+
+# Vendored Python packages used only for plotting
+tools/pylib/
+__pycache__/
+
+# Participant data stays local
+Build/Coop/StudyData/
+study/data/

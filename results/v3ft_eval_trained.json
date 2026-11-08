@@ -1,0 +1,10 @@
+{
+  "policy": "trained_ppo_onnx",
+  "episodes": 300,
+  "success_rate": 0.973,
+  "mean_seconds_when_successful": 6.19,
+  "shocks_per_episode": 0.327,
+  "wrong_cell_touch_rate": 0.127,
+  "hazard_cables": 2,
+  "timeout_seconds": 40
+}
