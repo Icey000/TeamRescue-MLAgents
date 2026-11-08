@@ -183,12 +183,20 @@ namespace TeamRescue.Language
             GUI.SetNextControlName("cmd");
             var e = Event.current;
             bool submit = e.type == EventType.KeyDown && (e.keyCode == KeyCode.Return || e.keyCode == KeyCode.KeypadEnter) && GUI.GetNameOfFocusedControl() == "cmd";
+            bool focused = GUI.GetNameOfFocusedControl() == "cmd";
+            // Say clearly whether the keyboard is typing or moving: WASD is ignored while the box has focus.
+            GUI.Label(new Rect(fieldRect.x, fieldRect.y - 22, fieldRect.width, 20), focused
+                ? "<color=#ffd27a>TYPING — Enter sends and returns to moving · Esc cancels</color>"
+                : "<color=#8a96a8>Press Enter (or T) to type an order · WASD moves you</color>", meta);
             input = GUI.TextField(fieldRect, input, 200, field);
-            if (string.IsNullOrEmpty(input) && GUI.GetNameOfFocusedControl() != "cmd")
-                GUI.Label(new Rect(fieldRect.x + 12, fieldRect.y + 9, fieldRect.width, 24), "<color=#8a96a8>Type an order + Enter · “拿那个方的” · “get the closer one”</color>", meta);
-            if (submit) { Submit(input); input = ""; e.Use(); }
+            if (string.IsNullOrEmpty(input) && !focused)
+                GUI.Label(new Rect(fieldRect.x + 12, fieldRect.y + 9, fieldRect.width, 24), "<color=#8a96a8>“按住开关” · “拿那个方的” · “get the closer one”</color>", meta);
+            // Sending an order hands the keyboard back to the game, so the player can move again at once.
+            if (submit) { Submit(input); input = ""; GUI.FocusControl(null); e.Use(); }
             if (focusRequested) { GUI.FocusControl("cmd"); focusRequested = false; }
-            if (e.type == EventType.KeyDown && e.keyCode == KeyCode.Escape && GUI.GetNameOfFocusedControl() == "cmd") { GUI.FocusControl(null); e.Use(); }
+            if (e.type == EventType.KeyDown && e.keyCode == KeyCode.Escape && focused) { GUI.FocusControl(null); e.Use(); }
+            // Clicking anywhere outside the box also returns to moving.
+            if (e.type == EventType.MouseDown && focused && !fieldRect.Contains(e.mousePosition)) GUI.FocusControl(null);
             IsTyping = GUI.GetNameOfFocusedControl() == "cmd";
         }
 
