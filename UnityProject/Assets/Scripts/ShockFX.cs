@@ -22,7 +22,7 @@ namespace TeamRescue
             public LineRenderer[] arcs;
             public Light flash;
             public float age, stun;
-            public bool isPlayer, dropped;
+            public bool isPlayer, dropped, fence;
             public string who;
         }
 
@@ -68,6 +68,7 @@ namespace TeamRescue
                 stun = stun,
                 isPlayer = isPlayer,
                 dropped = dropped,
+                fence = cable != null && cable.forcedOn,
                 who = who,
             };
 
@@ -199,7 +200,8 @@ namespace TeamRescue
                 float x = sp.x, y = Screen.height - sp.y - h.age * 12f;
                 string title = h.isPlayer ? "ZAP! You are stunned" : $"ZAP! {h.who} stunned";
                 Shadowed(new Rect(x - 160, y - 30, 320, 30), title, labelStyle);
-                string detail = h.dropped ? "dropped the cell" : "live cable: wait for it to go dark";
+                string detail = h.dropped ? "dropped the cell"
+                              : h.fence ? "live fence: someone must hold a breaker" : "live cable: wait for it to go dark";
                 Shadowed(new Rect(x - 160, y - 4, 320, 22), detail, subStyle);
 
                 // Stun bar: how long until it can move again.

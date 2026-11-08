@@ -35,6 +35,13 @@ namespace TeamRescue
         [Tooltip("Language layer: the robot waits in place until it receives a new order.")]
         public bool holdPosition;
 
+        /// <summary>Co-op: send the unchanged policy to an arbitrary point (e.g. a breaker pad) by presenting
+        /// that point as both the target cell and the generator. No pick-up or install happens meanwhile.</summary>
+        [System.NonSerialized] public bool goalOverride;
+        [System.NonSerialized] public Vector3 overrideGoalLocal;
+        /// <summary>Co-op: stop in front of the live fence until someone holds a breaker.</summary>
+        [System.NonSerialized] public bool pauseForFence;
+
         public CellColor Target { get; private set; }
         public CellPart Carried { get; private set; }
         public float StunRemaining => stun;
@@ -121,13 +128,20 @@ namespace TeamRescue
 
             foreach (var c in arena.cells)
             {
+                if (goalOverride && c.color == Target)
+                {
+                    Vector3 o = overrideGoalLocal - p;
+                    sensor.AddObservation(o.x / s);
+                    sensor.AddObservation(o.z / s);
+                    continue;
+                }
                 if (!c.Available) { sensor.AddObservation(0f); sensor.AddObservation(0f); continue; }
                 Vector3 d = c.transform.localPosition - p;
                 sensor.AddObservation(d.x / s);
                 sensor.AddObservation(d.z / s);
             }
 
-            Vector3 g = arena.generator.localPosition - p;
+            Vector3 g = (goalOverride ? overrideGoalLocal : arena.generator.localPosition) - p;
             sensor.AddObservation(g.x / s);
             sensor.AddObservation(g.z / s);
 
@@ -165,7 +179,16 @@ namespace TeamRescue
             float dt = Time.fixedDeltaTime;
             episodeSteps++;
             if (stun > 0f) { stun -= dt; move = Vector2.zero; }
-            if (holdPosition) move = Vector2.zero;
+            if (goalOverride)
+            {
+                // The policy was trained to find cells and the generator (which its rays can see), not
+                // to stand on an untagged spot: given a breaker as goal it wanders. Trips to a breaker
+                // are therefore scripted; the co-op coordinator supplies a waypoint that avoids the fence.
+                Vector3 to = overrideGoalLocal - transform.localPosition; to.y = 0f;
+                float dGoal = to.magnitude;
+                move = dGoal < 0.3f ? Vector2.zero : new Vector2(to.x, to.z).normalized * Mathf.Clamp01(dGoal / 0.8f);
+            }
+            if (holdPosition || pauseForFence) move = Vector2.zero;
 
             Vector3 desired = arena.transform.TransformDirection(new Vector3(move.x, 0, move.y));
             desired = Vector3.ClampMagnitude(desired, 1f) * moveSpeed;
@@ -176,6 +199,7 @@ namespace TeamRescue
                 visual.rotation = Quaternion.Slerp(visual.rotation, Quaternion.LookRotation(planar), 0.25f);
 
             if (MaxStep > 0) AddReward(-timePenaltyTotal / MaxStep);
+            if (goalOverride) return;
 
             Vector3 p = transform.localPosition;
             if (Carried == null)
@@ -258,6 +282,13 @@ namespace TeamRescue
                 c.Release(arena.ClampInside(arena.transform.InverseTransformPoint(h.SafeDropPoint(transform.position))));
             }
             body.linearVelocity = Vector3.zero;
+            if (h.forcedOn)
+            {
+                // Co-op fence (never off by itself): knock the robot back to its own side.
+                Vector3 k = arena.ClampInside(arena.transform.InverseTransformPoint(h.SafeDropPoint(transform.position, 1.5f)));
+                Vector3 w = arena.transform.TransformPoint(new Vector3(k.x, transform.localPosition.y, k.z));
+                body.position = w; transform.position = w;
+            }
             prevDist = SubgoalDistance();
         }
 

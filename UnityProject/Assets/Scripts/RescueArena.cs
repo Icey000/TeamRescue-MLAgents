@@ -28,7 +28,12 @@ namespace TeamRescue
 
         public void SetHazardsForcedOff(bool off)
         {
-            foreach (var h in hazards) if (h != null) h.forcedOff = off;
+            foreach (var h in hazards)
+            {
+                if (h == null) continue;
+                if (h.forcedOff && !off) h.relockUntil = Time.fixedTime + HazardStrip.RelockDelay;
+                h.forcedOff = off;
+            }
         }
 
         public bool BothInstalled => cells.All(c => c.Installed);

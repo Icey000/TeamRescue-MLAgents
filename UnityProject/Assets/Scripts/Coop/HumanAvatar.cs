@@ -107,6 +107,14 @@ namespace TeamRescue.Coop
                 c.Release(arena.ClampInside(arena.transform.InverseTransformPoint(h.SafeDropPoint(transform.position))));
             }
             body.linearVelocity = Vector3.zero;
+            if (h.forcedOn)
+            {
+                // A fence never switches off by itself: knock the victim back to its own side,
+                // otherwise it would be shocked again the moment the stun ends.
+                Vector3 k = arena.ClampInside(arena.transform.InverseTransformPoint(h.SafeDropPoint(transform.position, 1.5f)));
+                Vector3 w = arena.transform.TransformPoint(new Vector3(k.x, transform.localPosition.y, k.z));
+                body.position = w; transform.position = w;
+            }
             ShockFX.Play(transform, visual, h, brain == null ? "You" : "Partner", brain == null, stunDuration, dropped);
         }
 

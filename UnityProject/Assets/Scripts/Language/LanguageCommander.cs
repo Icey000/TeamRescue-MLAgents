@@ -23,6 +23,9 @@ namespace TeamRescue.Language
         public static bool IsTyping { get; private set; }
         /// <summary>Co-op scene: orders go to the coordinator instead (empty list = hold).</summary>
         public static Func<List<CellColor>, bool> CoopOverride;
+        /// <summary>Co-op scene: handles orders the cell schema cannot express (e.g. "hold the breaker").
+        /// Returns the robot's reply when it consumed the text, otherwise null.</summary>
+        public static Func<string, string> CoopTextHook;
         /// <summary>True when the dialogue column is shown (the game view uses the rest of the screen).</summary>
         public static bool Active { get; private set; }
         public const float ColumnFraction = 0.34f;
@@ -72,6 +75,13 @@ namespace TeamRescue.Language
         {
             busy = true;
             Say("player", text, "");
+            string hooked = CoopTextHook?.Invoke(text);
+            if (hooked != null)
+            {
+                Say("robot", hooked, "keyword rule · breaker");
+                busy = false;
+                yield break;
+            }
             var facts = SceneFacts.From(agent, agent.holdPosition);
             ParsedCommand cmd = null;
             yield return parser.Parse(text, facts, history.TakeLast(3).ToList(), c => cmd = c);

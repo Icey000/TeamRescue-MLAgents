@@ -12,8 +12,9 @@ Circle one number: 1 = strongly disagree … 7 = strongly agree.
 | Q4 | Working with the robot felt like teamwork. | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 | Q5 | The robot got in my way or did the same thing as me. | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 | Q6 | How much mental effort did coordinating with the robot take? (1 = very little, 7 = a lot) | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| Q7 | Playing with this robot was fun. | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 
-What was the most frustrating moment with this robot?
+What was the most frustrating moment with this robot? And the best moment?
 
 ______________________________________________________________________
 
